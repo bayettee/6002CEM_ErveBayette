@@ -14,10 +14,23 @@ namespace StudyGuide
             InitializeComponent();
             StudyItems.Add("Study Task 1");
             StudyItems.Add("Study Task 2");
-            // Add more initial study tasks as needed
+            // Add more initial study tasks later
         }
 
         
+
+        private void OnAddTaskClicked(object sender, EventArgs e)
+        {
+            // Get the new task from the Entry
+            string newTask = NewTaskEntry.Text;
+
+            // Add the new task to the ObservableCollection
+            StudyItems.Add(newTask);
+
+            // Clear the Entry for the next task
+            NewTaskEntry.Text = "";
+        }
     }
 }
+
 

@@ -8,13 +8,15 @@
             Padding="30,0"
             Spacing="25">
 
-            <!-- Existing UI Elements -->
-
             <Label
                 Text="Study Planner"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
+            <!-- Add DatePicker for Due Dates -->
+            <DatePicker x:Name="DueDatePicker" />
+
+            <!-- Add ListView for Displaying Study Tasks -->
             <ListView
                 x:Name="StudyListView"
                 ItemsSource="{Binding StudyItems}"
@@ -26,9 +28,20 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <!-- Add UI elements for adding new study tasks here -->
+            <!-- Add Entry for New Study Task -->
+            <Entry
+                x:Name="NewTaskEntry"
+                Placeholder="Enter new study task"
+                HorizontalOptions="FillAndExpand" />
+
+            <!-- Add Button to Add New Study Task -->
+            <Button
+                Text="Add Task"
+                Clicked="OnAddTaskClicked"
+                HorizontalOptions="Fill" />
 
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
+
