@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyGuide.WelcomePage">
+
+    <StackLayout>
+        <Label Text="Welcome to Study Guide App!" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <Button Text="Get Started" Clicked="OnGetStartedClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+    </StackLayout>
+
+</ContentPage>
