@@ -17,6 +17,17 @@
             <!-- Add DatePicker for Due Dates -->
             <DatePicker x:Name="DueDatePicker" />
 
+            <!-- Add PriorityPicker for Task Priorities -->
+            <Picker x:Name="PriorityPicker" Title="Select Priority">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>High</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Low</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
             <!-- Add ListView for Displaying Study Tasks -->
             <ListView
                 x:Name="StudyListView"
@@ -27,6 +38,7 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Spacing="10">
                                 <Label Text="{Binding TaskName}" VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding Priority}" VerticalOptions="CenterAndExpand" />
                                 <Button Text="Delete" Clicked="OnDeleteTaskClicked" BindingContext="{Binding .}" />
                             </StackLayout>
                         </ViewCell>
@@ -52,9 +64,16 @@
                 Clicked="OnOpenNotesClicked"
                 HorizontalOptions="FillAndExpand" />
 
+            <!-- Add Button to Sort Tasks -->
+            <Button
+                Text="Sort Tasks"
+                Clicked="OnSortTasksClicked"
+                HorizontalOptions="FillAndExpand" />
+
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
+
 
 
