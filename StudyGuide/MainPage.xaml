@@ -28,6 +28,24 @@
                 </Picker.ItemsSource>
             </Picker>
 
+            <!-- Add Entry for Subject -->
+            <Entry
+                x:Name="SubjectEntry"
+                Placeholder="Enter subject"
+                HorizontalOptions="FillAndExpand" />
+
+            <!-- Add Entry for Topic -->
+            <Entry
+                x:Name="TopicEntry"
+                Placeholder="Enter topic"
+                HorizontalOptions="FillAndExpand" />
+
+            <!-- Add Entry for Specific Notes -->
+            <Editor
+                x:Name="NotesEditor"
+                Placeholder="Enter specific notes"
+                HorizontalOptions="FillAndExpand" />
+
             <!-- Add ListView for Displaying Study Tasks -->
             <ListView
                 x:Name="StudyListView"
@@ -39,6 +57,10 @@
                             <StackLayout Orientation="Horizontal" Spacing="10">
                                 <Label Text="{Binding TaskName}" VerticalOptions="CenterAndExpand" />
                                 <Label Text="{Binding Priority}" VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding DueDate, StringFormat='{0:MM/dd/yyyy}'}" VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding Subject}" VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding Topic}" VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding Notes}" VerticalOptions="CenterAndExpand" />
                                 <Button Text="Delete" Clicked="OnDeleteTaskClicked" BindingContext="{Binding .}" />
                             </StackLayout>
                         </ViewCell>
