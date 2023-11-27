@@ -75,7 +75,7 @@ namespace StudyGuide
 
         public StudyTask()
         {
-            
+            // You can add any additional initialization logic here
         }
 
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

@@ -8,6 +8,7 @@
         <Label Text="Study Notes" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
         <Editor x:Name="NotesEditor" Placeholder="Write your study notes here..." VerticalOptions="FillAndExpand" />
         <Button Text="Save Notes" Clicked="OnSaveNotesClicked" HorizontalOptions="CenterAndExpand"/>
+        <Button Text="Back to Tasks" Clicked="OnBackToMainClicked" HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
 
 </ContentPage>
