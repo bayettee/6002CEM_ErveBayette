@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudyGuide.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+        <StackLayout Padding="20" Spacing="20">
 
-            <Label
-                Text="Study Planner"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+            <Label Text="Study Planner"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#3498db"
+                   HorizontalOptions="Center" />
 
             <!-- Add DatePicker for Due Dates -->
             <DatePicker x:Name="DueDatePicker" />
@@ -29,39 +27,40 @@
             </Picker>
 
             <!-- Add Entry for Subject -->
-            <Entry
-                x:Name="SubjectEntry"
-                Placeholder="Enter subject"
-                HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="SubjectEntry"
+                   Placeholder="Enter subject"
+                   HorizontalOptions="FillAndExpand" />
 
             <!-- Add Entry for Topic -->
-            <Entry
-                x:Name="TopicEntry"
-                Placeholder="Enter topic"
-                HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="TopicEntry"
+                   Placeholder="Enter topic"
+                   HorizontalOptions="FillAndExpand" />
 
             <!-- Add Entry for Specific Notes -->
-            <Editor
-                x:Name="NotesEditor"
-                Placeholder="Enter specific notes"
-                HorizontalOptions="FillAndExpand" />
+            <Editor x:Name="NotesEditor"
+                    Placeholder="Enter specific notes"
+                    HeightRequest="100"
+                    HorizontalOptions="FillAndExpand" />
 
             <!-- Add ListView for Displaying Study Tasks -->
-            <ListView
-                x:Name="StudyListView"
-                ItemsSource="{Binding StudyItems}"
-                VerticalOptions="FillAndExpand">
+            <ListView x:Name="StudyListView"
+                      ItemsSource="{Binding StudyItems}"
+                      VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Spacing="10">
-                                <Label Text="{Binding TaskName}" VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding TaskName}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
                                 <Label Text="{Binding Priority}" VerticalOptions="CenterAndExpand" />
                                 <Label Text="{Binding DueDate, StringFormat='{0:MM/dd/yyyy}'}" VerticalOptions="CenterAndExpand" />
                                 <Label Text="{Binding Subject}" VerticalOptions="CenterAndExpand" />
                                 <Label Text="{Binding Topic}" VerticalOptions="CenterAndExpand" />
                                 <Label Text="{Binding Notes}" VerticalOptions="CenterAndExpand" />
-                                <Button Text="Delete" Clicked="OnDeleteTaskClicked" BindingContext="{Binding .}" />
+                                <Button Text="Delete"
+                                        Clicked="OnDeleteTaskClicked"
+                                        BindingContext="{Binding .}"
+                                        BackgroundColor="#e74c3c"
+                                        TextColor="White" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -69,33 +68,34 @@
             </ListView>
 
             <!-- Add Entry for New Study Task -->
-            <Entry
-                x:Name="NewTaskEntry"
-                Placeholder="Enter new study task"
-                HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="NewTaskEntry"
+                   Placeholder="Enter new study task"
+                   HorizontalOptions="FillAndExpand" />
 
             <!-- Add Button to Add New Study Task -->
-            <Button
-                Text="Add Task"
-                Clicked="OnAddTaskClicked"
-                HorizontalOptions="Fill" />
+            <Button Text="Add Task"
+                    Clicked="OnAddTaskClicked"
+                    HorizontalOptions="Fill"
+                    BackgroundColor="#2ecc71"
+                    TextColor="White" />
 
             <!-- Add Button to Open Notes Page -->
-            <Button
-                Text="Open Notes"
-                Clicked="OnOpenNotesClicked"
-                HorizontalOptions="FillAndExpand" />
+            <Button Text="Open Notes"
+                    Clicked="OnOpenNotesClicked"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="#3498db"
+                    TextColor="White" />
 
             <!-- Add Button to Sort Tasks -->
-            <Button
-                Text="Sort Tasks"
-                Clicked="OnSortTasksClicked"
-                HorizontalOptions="FillAndExpand" />
+            <Button Text="Sort Tasks"
+                    Clicked="OnSortTasksClicked"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="#f39c12"
+                    TextColor="White" />
 
-        </VerticalStackLayout>
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
-
 
 

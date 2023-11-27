@@ -4,13 +4,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudyGuide.NotesPage">
 
-    <StackLayout>
-        <Label Text="Study Notes" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-        <Editor x:Name="NotesEditor" Placeholder="Write your study notes here..." VerticalOptions="FillAndExpand" />
-        <Button Text="Save Notes" Clicked="OnSaveNotesClicked" HorizontalOptions="CenterAndExpand"/>
-        <Button Text="View Notes" Clicked="OnViewNotesClicked" HorizontalOptions="CenterAndExpand"/>
-        <Button Text="Edit Notes" Clicked="OnEditNotesClicked" HorizontalOptions="CenterAndExpand"/>
-        <Button Text="Back to Tasks" Clicked="OnBackToMainClicked" HorizontalOptions="CenterAndExpand"/>
+    <StackLayout Padding="20" Spacing="20">
+
+        <Label Text="Study Notes"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="#3498db"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand" />
+
+        <Editor x:Name="NotesEditor"
+                Placeholder="Write your study notes here..."
+                VerticalOptions="FillAndExpand"
+                HeightRequest="150"
+                Margin="0,0,0,20" />
+
+        <StackLayout Orientation="Horizontal" Spacing="20">
+
+            <Button Text="Save Notes"
+                    Clicked="OnSaveNotesClicked"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#2ecc71"
+                    TextColor="White" />
+
+            <Button Text="View Notes"
+                    Clicked="OnViewNotesClicked"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#3498db"
+                    TextColor="White" />
+
+            <Button Text="Edit Notes"
+                    Clicked="OnEditNotesClicked"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#f39c12"
+                    TextColor="White" />
+
+        </StackLayout>
+
+        <Button Text="Back to Tasks"
+                Clicked="OnBackToMainClicked"
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="#e74c3c"
+                TextColor="White" />
+
     </StackLayout>
 
 </ContentPage>
