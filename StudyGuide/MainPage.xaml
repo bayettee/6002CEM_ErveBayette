@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudyGuide.MainPage">
@@ -24,14 +25,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding TaskName}" />
-                                <Button Text="Delete" Command="{Binding DeleteCommand}" Grid.Column="1" />
-                            </Grid>
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Label Text="{Binding TaskName}" VerticalOptions="CenterAndExpand" />
+                                <Button Text="Delete" Clicked="OnDeleteTaskClicked" BindingContext="{Binding .}" />
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -48,6 +45,12 @@
                 Text="Add Task"
                 Clicked="OnAddTaskClicked"
                 HorizontalOptions="Fill" />
+
+            <!-- Add Button to Open Notes Page -->
+            <Button
+                Text="Open Notes"
+                Clicked="OnOpenNotesClicked"
+                HorizontalOptions="FillAndExpand" />
 
         </VerticalStackLayout>
     </ScrollView>

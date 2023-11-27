@@ -1,13 +1,14 @@
 ﻿
 using System;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using Microsoft.Maui.Controls;
 
 namespace StudyGuide
 {
     public partial class MainPage : ContentPage
     {
+        int count = 0;
+
         public ObservableCollection<StudyTask> StudyItems { get; set; } = new ObservableCollection<StudyTask>();
 
         public MainPage()
@@ -17,6 +18,8 @@ namespace StudyGuide
             StudyItems.Add(new StudyTask { TaskName = "Study Task 2" });
             BindingContext = this; // Set BindingContext to the instance of MainPage
         }
+
+        
 
         private void OnAddTaskClicked(object sender, EventArgs e)
         {
@@ -29,6 +32,20 @@ namespace StudyGuide
             DueDatePicker.Date = DateTime.Now; // Reset DatePicker
 
             OnPropertyChanged(nameof(StudyItems)); // Refresh the ListView
+        }
+
+        private void OnDeleteTaskClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var task = (StudyTask)button.BindingContext;
+
+            StudyItems.Remove(task);
+            OnPropertyChanged(nameof(StudyItems)); // Refresh the ListView
+        }
+
+        private void OnOpenNotesClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NotesPage());
         }
     }
 
@@ -56,18 +73,9 @@ namespace StudyGuide
             }
         }
 
-        public ICommand DeleteCommand { get; set; }
-
         public StudyTask()
         {
-            DeleteCommand = new Command(OnDelete);
-        }
-
-        private void OnDelete()
-        {
-            // Access the StudyItems collection from the MainPage class
-            var mainPage = (MainPage)App.Current.MainPage;
-            mainPage.StudyItems.Remove(this);
+            
         }
 
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

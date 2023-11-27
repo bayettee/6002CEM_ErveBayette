@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyGuide.NotesPage">
+
+    <StackLayout>
+        <Label Text="Study Notes" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <Editor x:Name="NotesEditor" Placeholder="Write your study notes here..." VerticalOptions="FillAndExpand" />
+        <Button Text="Save Notes" Clicked="OnSaveNotesClicked" HorizontalOptions="CenterAndExpand"/>
+    </StackLayout>
+
+</ContentPage>
