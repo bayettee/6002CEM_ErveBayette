@@ -20,6 +20,9 @@ namespace StudyGuide
             var viewButton = new Button { Text = "View Notes", HorizontalOptions = LayoutOptions.CenterAndExpand };
             viewButton.Clicked += OnViewNotesClicked;
 
+            var editButton = new Button { Text = "Edit Notes", HorizontalOptions = LayoutOptions.CenterAndExpand };
+            editButton.Clicked += OnEditNotesClicked;
+
             var backButton = new Button { Text = "Back to Tasks", HorizontalOptions = LayoutOptions.CenterAndExpand };
             backButton.Clicked += OnBackToMainClicked;
 
@@ -30,6 +33,7 @@ namespace StudyGuide
                     notesEditor,
                     saveButton,
                     viewButton,
+                    editButton,
                     backButton
                 }
             };
@@ -53,6 +57,12 @@ namespace StudyGuide
         {
             // display an alert with all saved notes
             DisplayAlert("All Notes", savedNotes.ToString(), "OK");
+        }
+
+        private void OnEditNotesClicked(object sender, EventArgs e)
+        {
+            // allow users to edit saved notes directly in the editor
+            notesEditor.Text = savedNotes.ToString();
         }
 
         private void OnBackToMainClicked(object sender, EventArgs e)
